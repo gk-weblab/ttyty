@@ -1,0 +1,94 @@
+.btn {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    position: relative;
+    text-transform: uppercase;
+    display: inline-block;
+    letter-spacing: 1.5px;
+    border-radius: 10rem;
+    box-shadow: rgba($color-black, 0.12) 0px 1px 3px,
+       rgba($color-black, 0.24) 0px 1px 2px;
+    transition: transform 300ms, backdrop-filter 200ms;
+    font-size: $font-size-text;
+ 
+    &:hover {
+       transform: translateY(-0.3rem);
+       box-shadow: rgba($color-black, 0.12) 0 1rem 4rem,
+       rgba($color-black, 0.24) 0 1rem 6rem;
+ 
+       &::before {
+         transform: scaleY(1.6) scaleX(1.4);
+         opacity: 0;
+      }
+    }
+    &:active, &:focus-visible {
+      &::before {
+         transition: none;
+         opacity: 1;
+         transform: scaleY(1) scaleX(1);
+      }
+    }
+   
+    &::before {
+       content: "";
+       display: block;
+       width: 100%;
+       height: 100%;
+       transform: scaleY(1) scaleX(1);
+       background-color: inherit;
+       position: absolute;
+       top: 0;
+       left: 0;
+       border-radius: inherit;
+       z-index: -9;
+      transition: transform 400ms ease, opacity 200ms ease 100ms;
+    }
+    &--white-opacity {
+      border: 1px solid $color-white;
+      background-color: rgba($color-white, 0.7);
+      color: $color-gray-dark-2;
+     
+    }
+    &--white {
+      border: 1px solid $color-white;
+      background-color: $color-white;
+      color: $color-gray-dark-2;
+     
+    }
+    &--green {
+      border: 1px solid $color-primary-dark;
+      background-color: $color-primary-dark;
+      color: $color-white;
+   
+
+    }
+}
+ 
+// secondary 
+.btn-text {
+   &:link,
+   &:visited {
+      font-size: $font-size-text;
+      color: $color-primary-dark;
+      display: inline-block;
+      text-decoration: none;
+      border-block: 1px solid $color-primary-dark;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s;
+      background: linear-gradient(to right, $color-primary-light, $color-primary-dark 50%, transparent 50%, transparent 100%) no-repeat;   
+      background-size: 200%;
+     background-position: 100% 0; 
+
+   }
+
+   &:hover {
+     background-position: 0 0;
+     color: $color-white;
+     transform: translateY(-2px);
+    
+   }
+   &:active {
+      transform:translateY(0);
+     
+   }
+}

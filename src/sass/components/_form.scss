@@ -1,0 +1,108 @@
+.form {
+       
+    &__group{
+       
+        &:not(:last-child){
+            margin-bottom: 2rem;
+        }
+      
+    }
+    &__input {
+        font-size: 1.5rem;
+        padding: 1.5rem 2rem;
+        border-radius: 2px;
+        background-color: rgba($color-white, 0.5);
+        font-family: inherit;
+        border: none;
+        border-bottom: 3px solid transparent;
+        width: 90%;
+        display: block;
+        color: inherit;
+        text-transform:capitalize;
+        transition: all 0.3s;
+
+        &:focus{
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+            border-bottom: 3px solid $color-primary-dark;
+            &:invalid {
+                border-bottom: 3px solid $color-secondary-dark;
+            }
+        }
+        
+        
+        &::placeholder {
+            color: $color-gray-dark;
+        }
+        
+    }
+    &__label {
+      font-size: 1.2rem; 
+      margin-left: 2rem;
+      margin-top: 0.5rem;
+      display: block;
+      transition: all 0.3s;
+      
+     
+    }
+    &__input:placeholder-shown + &__label  {
+        transform: translateY(-3rem);
+        visibility: hidden;
+        opacity: 0; 
+        
+
+    }
+    &__radio-group {
+        width: 49%;
+        display: inline-block;
+        @include respond(phone){
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+
+    }
+    &__radio-input{
+      display: none;
+    }
+    &__radio-label{
+        font-size: $font-size-text;
+        position: relative;
+        padding: 0 0 0 5rem;
+        text-transform: capitalize;
+    }
+    &__radio-btn {
+        height: 3rem;
+        aspect-ratio: 1/1;
+        display: inline-block;
+        border: 5px solid $color-primary-dark;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        top: -.4rem;
+        cursor: pointer;
+        transition: all .3s;
+
+       &::after {
+        content:"";
+        display: inline-block;
+        @include psa-center;
+        height: 1.3rem;
+        aspect-ratio: 1/1;
+        background-color: $color-primary-dark;
+        border-radius: 50%;
+        opacity: 0;
+        backface-visibility: hidden;
+        transition: all .3s;
+       //cssbud neon glow copy 
+       
+-webkit-box-shadow:0 0 5rem 5rem rgba($color-primary-medium,0.2);
+-moz-box-shadow: 0 0 5rem 5rem rgba($color-primary-medium,0.2);
+box-shadow: 0 0 5rem 5rem rgba($color-primary-medium,0.2);
+
+       }
+       
+    }
+    &__radio-input:checked + &__radio-label  &__radio-btn::after {
+        opacity:1;
+    }
+}

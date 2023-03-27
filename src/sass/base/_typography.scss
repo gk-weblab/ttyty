@@ -1,0 +1,82 @@
+body {
+  
+   font-family: "Lato", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
+   font-weight: 400;
+   line-height: 1.7;
+   color: $color-gray-dark-2;
+}
+
+:where(a) {
+   text-decoration: none;
+}
+
+.heading-primary {
+   font-size: $font-size-text;
+   color: $color-white;
+   backface-visibility: hidden;
+   text-transform: uppercase;
+
+  
+   & span {
+      display: block;
+      text-align: center;
+      line-height: 4rem;
+   }
+
+   &--main {
+      font-size: 4rem;
+      letter-spacing: 1rem;
+      animation: right 0.8s cubic-bezier(0.65, 1.82, 0.67, 1.26) 1;
+      @include respond(phone) {
+              letter-spacing: 0.8rem;
+              font-size: 3rem;
+      }
+   }
+   &--sub {
+      
+      letter-spacing: 0.6rem;
+      animation: left 0.8s cubic-bezier(0.65, 1.82, 0.82, 1) 100ms 1;
+      @include respond(phone) {
+         letter-spacing: 0.4rem;
+         
+ }
+  
+   }
+  
+}
+.heading-secondary {
+   font-size: 3.5rem;
+   color: $color-black;
+   font-weight: 700;
+   text-transform: uppercase;
+   letter-spacing: 0.2rem;
+   transition: all 0.2s;
+   @include gradient-text($color-primary-light,$color-primary-dark, to right);
+   @include respond(tab-por) {
+      font-size: 3rem;
+
+   }
+   @include respond(phone) {
+      font-size: 2.5rem;
+
+   }
+   &:hover {
+      transform: skewX(15deg) skewY(2deg) scale(1.1);
+      text-shadow: 0.5rem 1rem 2rem $color-black;
+   }
+}
+.heading-tertiary {
+   font-size: $font-size-text;
+   font-weight: 700;
+   text-transform: uppercase;
+   
+}
+.paragraph {
+   font-size: $font-size-text;
+   color:$color-gray-dark;
+   &:not(:last-child) {
+      margin-bottom: 3rem;
+   }
+}

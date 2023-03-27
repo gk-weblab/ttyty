@@ -1,0 +1,240 @@
+/** @format */
+
+.card {
+	// functionality
+	perspective: 150rem;
+	position: relative;
+	// min-height: 50rem;
+	height: 53rem;
+
+	&__side {
+		height: inherit;
+		backface-visibility: hidden;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		border-radius: 3px;
+		overflow: hidden;
+		box-shadow: 0 1.5rem 4rem rgba($color-black, 0.15);
+		transition: transform 0.8s ease;
+
+		&--front {
+			background-color: $color-white;
+		}
+
+		&--back {
+			transform: rotateY(180deg);
+
+			&-1 {
+				background-image: linear-gradient(
+					to right bottom,
+					$color-secondary-light,
+					$color-secondary-dark
+				);
+			}
+
+			&-2 {
+				background-image: linear-gradient(
+					to right bottom,
+					$color-primary-light,
+					$color-primary-dark
+				);
+			}
+
+			&-3 {
+				background-image: linear-gradient(
+					to right bottom,
+					$color-tertiary-light,
+					$color-tertiary-dark
+				);
+			}
+		}
+	}
+
+	&:hover &__side {
+		&--front {
+			transform: rotateY(-180deg);
+		}
+		&--back {
+			transform: rotateY(0deg);
+		}
+	}
+	// FRONT SIDE
+	&__picture {
+		height: 30rem;
+
+		background-size: cover;
+		background-blend-mode: screen;
+		clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);
+		&--1 {
+			background-image: url("../img/nat-5.jpg"),
+				linear-gradient(
+					to right bottom,
+					$color-secondary-light,
+					$color-secondary-dark
+				);
+		}
+		&--2 {
+			background-image: url("../img/nat-6.jpg"),
+				linear-gradient(
+					to right bottom,
+					$color-primary-light,
+					$color-primary-dark
+				);
+		}
+		&--3 {
+			background-image: url("../img/nat-7.jpg"),
+				linear-gradient(
+					to right bottom,
+					$color-tertiary-light,
+					$color-tertiary-dark
+				);
+		}
+	}
+	&__heading {
+		font-size: 2.8rem;
+		font-weight: 300;
+		text-transform: uppercase;
+		text-align: right;
+		color: $color-white;
+		position: absolute;
+		top: 12rem;
+		right: 2rem;
+		width: 75%;
+	}
+
+	&__heading-span {
+		padding: 1rem 1.5rem;
+		-webkit-box-decoration-break: clone;
+		box-decoration-break: clone;
+
+		&--1 {
+			background-image: linear-gradient(
+				to right bottom,
+				rgba($color-secondary-light, 0.8),
+				rgba($color-secondary-dark, 0.8)
+			);
+		}
+		&--2 {
+			background-image: linear-gradient(
+				to right bottom,
+				$color-primary-light,
+				$color-primary-dark
+			);
+		}
+		&--3 {
+			background-image: linear-gradient(
+				to right bottom,
+				$color-tertiary-light,
+				$color-tertiary-dark
+			);
+		}
+	}
+	&__details {
+		ul {
+			width: 80%;
+			margin: 2rem auto;
+			list-style: none;
+			li {
+				font-size: 1.5rem;
+				font-weight: 300;
+				color: $color-gray-dark;
+				border-bottom: 1px solid $color-gray-light-2;
+				padding: 1rem;
+				text-transform: capitalize;
+				text-align: center;
+				&:not(:last-child) {
+					margin-bottom: 1rem;
+				}
+			}
+		}
+	}
+	//  back side
+	&__cta {
+		width: 90%;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		color: $color-white;
+		text-align: center;
+	}
+	&__price--box {
+		text-align: center;
+		margin-bottom: 8rem;
+	}
+	&__price--only {
+		font-size: 2rem;
+		font-weight: 300;
+		text-transform: uppercase;
+	}
+	&__price--value {
+		font-size: 6rem;
+		font-weight: 100;
+	}
+	&__price--btn {
+		font-size: 2rem;
+	}
+
+       	// @include respond(tab-por) {
+		// functionality
+		@media only screen and (max-width: 56.25em),
+		only screen and (hover: none) { 
+		height: auto;
+		filter: drop-shadow(0 1rem 2rem rgba($color-black, 0.3));
+		background-color: $color-white;
+		border-radius: 3px;
+		overflow: hidden;
+
+		&__side {
+			height: auto;
+			backface-visibility: hidden;
+			position: relative;
+			box-shadow: none;
+
+			&--back {
+				transform: rotateY(0deg);
+				clip-path: polygon(0 22%, 100% 0, 100% 100%, 0 100%);
+				padding-top: 11%;
+				margin-top: -11%; //MOVE UP
+				border-radius: 0;
+			}
+		}
+
+		&:hover &__side {
+			&--front {
+				transform: rotateY(0deg);
+			}
+			&--back {
+				transform: rotateY(0deg);
+			}
+		}
+		// FRONT SIDE
+
+		//  back side
+
+		&__cta {
+			transform: translate(0, 0);
+			left: 0;
+			top: 0;
+			position: relative !important;
+			margin: 1rem auto;
+			//  left and top apply to pos relative
+			// so needed to reset it
+		}
+		&__price--box {
+	
+			margin: 1rem;
+		}
+
+		&__price--value {
+			font-size: 5rem;
+			font-weight: 300;
+		}
+		&__price--btn {
+			font-size: 2rem;
+			margin: 1rem auto;
+		}
+	} 
+}

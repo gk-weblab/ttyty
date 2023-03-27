@@ -1,0 +1,41 @@
+*,
+*::after,
+*::before {
+   margin: 0;
+   padding: 0;
+   box-sizing: inherit;
+}
+
+html {
+
+   -webkit-tap-highlight-color: rgba($color-primary-dark, 0.2);
+    // 1rem setting
+   font-size: 62.5%;
+
+   @include respond(big-d) {
+    font-size: 70%;
+   }
+   @include respond(tab-land) {
+    font-size: 56.25%;
+   }
+   @include respond(tab-por) {
+    font-size: 50%;
+   }
+
+
+   
+}
+body {
+    box-sizing: border-box;
+    padding: 2rem;
+     @include respond(tab-por) {
+        padding: 0;
+       
+     }
+}
+
+::selection {
+   background-color: $color-primary-dark;
+   color: $color-white;
+}
+

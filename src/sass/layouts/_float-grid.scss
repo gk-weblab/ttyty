@@ -1,0 +1,72 @@
+/** @format */
+
+.row {
+	margin: 0 auto;
+	max-width: $grid-width;
+   padding-inline: 3rem;
+	@include clearfix;
+
+	&:not(:last-child) {
+		margin-bottom: $gutter-vertical;
+		@include respond(tab-por) {
+			margin-bottom: $gutter-vertical-small;
+		}
+	}
+   @include respond(tab-por) {
+      max-width: 50rem;
+      
+   }
+	[class^="col-"] {
+		float: left;
+		// background-color: $color-test;
+
+		&:not(:last-child) {
+			margin-right: $gutter-horizontal;
+			@include respond(tab-por) {
+				margin-right: 0;
+				margin-bottom: $gutter-vertical-small;
+			}
+		}
+
+		@include respond(tab-por) {
+			width: 100% !important;
+		}
+	}
+	.col-1-of-2 {
+		width: calc((100% - #{$gutter-horizontal}) * (1 / 2));
+	}
+	.col-1-of-3 {
+		width: calc(
+			(100% - 2 * (#{$gutter-horizontal})) * (1 / 3)
+		); // eq(1) = 1/3(100 -2x)
+	}
+	.col-1-of-4 {
+		width: calc((100% - 3 * (#{$gutter-horizontal})) * (1 / 4));
+	}
+	.col-2-of-3 {
+		width: calc(
+			((100% - #{$gutter-horizontal}) * (2 / 3)) +
+				(#{$gutter-horizontal} * 1 / 3)
+		);
+	}
+	.col-2-of-4 {
+		width: calc((100% - #{$gutter-horizontal}) * (2 / 4));
+	}
+
+	.col-3-of-4 {
+		width: calc(
+			((100% - #{$gutter-horizontal}) * (3 / 4)) +
+				(#{$gutter-horizontal} * 2 / 4)
+		);
+	}
+}
+// HOW TO CALCULATE CALC VALUE FROM LAYOUT
+
+// required width for col 2 = 2 * eq(1) + x
+//                        = 2 * [(100 - 2x) * 1/3] + x
+//                        = 2/3(100) - 4x/3 + x
+//                        = 2/3(100) - x/3
+//                        = 2/3(100) - 2x/3 + x/3
+//                        = 2/3[100 - x] + x/3
+//                        = (100 - x * (2/3)) + x/3
+//

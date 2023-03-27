@@ -1,0 +1,108 @@
+/** @format */
+
+.section-about {
+	background-color: $color-gray-light-1;
+	margin-top: -20vh;
+	padding: 25rem 1.5rem;
+	@include respond(tab-por) {
+		padding: 20rem 1rem;
+		margin-top: -10vh;
+	}
+}
+.section-features {
+	padding: 20rem 0;
+	background-image: linear-gradient(
+			to right bottom,
+			rgba($color-primary-light, 0.8),
+			rgba($color-primary-dark, 0.8)
+		),
+		url(../img/nat-4.jpg);
+	background-size: cover;
+	transform: skewY(-7deg) translateY(-7rem);
+	& > * {
+		transform: skewY(7deg);
+	}
+	@include respond(tab-por) {
+		padding: 10rem 0;
+	}
+}
+.section-tours {
+	padding: 10rem 5rem;
+
+	@include respond(tab-por) {
+		padding: 5rem 0;
+	}
+}
+.section-stories {
+	padding: 15rem 0;
+	position: relative;
+	.row {
+		@include respond(tab-land) {
+			max-width: 85vw;
+		}
+	}
+	@include respond(tab-land) {
+		padding: 10rem 0;
+	}
+}
+.section-booking {
+	padding: 15rem 0;
+	background: linear-gradient(
+		to right,
+		$color-primary-light,
+		$color-primary-dark
+	);
+	.row {
+		@include respond(tab-por) {
+			max-width: 85vw;
+		}
+	}
+	@include respond(tab-por) {
+		padding: 10rem 0;
+	}
+}
+.book {
+	background-blend-mode: lighten;
+	background-size: 100% 100%;
+	border-radius: 3px;
+	box-shadow: 0 1.5rem 4rem rgba($color-black, 0.4);
+	background-image: url(../img/nat-10.jpg),
+		linear-gradient(
+			105deg,
+			rgba($color-white, 0.8),
+			rgba($color-white, 0.8) 50%,
+			transparent 50%,
+			transparent
+		);
+
+	@include respond(tab-land) {
+		background-image: url(../img/nat-10.jpg),
+			linear-gradient(
+				105deg,
+				rgba($color-white, 0.8),
+				rgba($color-white, 0.8) 65%,
+				transparent 65%,
+				transparent
+			);
+	}
+	@include respond(tab-por) {
+		background-image: url(../img/nat-10.jpg),
+			linear-gradient(
+				105deg,
+				rgba($color-white, 0.8) 0,
+				rgba($color-white, 0.8) 100%
+			);
+	}
+	&__form {
+		width: 50%;
+		padding: 6rem;
+		@include respond(tab-land) {
+			width: 65%;
+		}
+      @include respond(tab-por) {
+			width: 100%;
+		}
+		
+      
+	}
+}
